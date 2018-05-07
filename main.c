@@ -6,7 +6,7 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 22:56:36 by rfontain          #+#    #+#             */
-/*   Updated: 2018/05/04 21:42:38 by rfontain         ###   ########.fr       */
+/*   Updated: 2018/05/08 01:06:57 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		main(int ac, char **av)
 		fdIn = open(av[1], O_RDONLY);
 		while ((i = get_next_line(fdIn, &recup1)))
 		{
-			printf("%d\n", i);
 			ft_putstr(recup1);
 			ft_putstr("\n");
 		}
