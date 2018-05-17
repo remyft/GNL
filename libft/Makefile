@@ -6,7 +6,7 @@
 #    By: rfontain <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 19:43:45 by rfontain          #+#    #+#              #
-#    Updated: 2018/04/23 19:13:38 by rfontain         ###   ########.fr        #
+#    Updated: 2018/04/20 17:11:44 by rfontain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ ft_isprint.c    ft_putchar.c    ft_strclr.c     ft_strlen.c     ft_strsplit.c \
 ft_itoa.c       ft_putchar_fd.c ft_strcmp.c     ft_strmap.c     ft_strstr.c  \
 ft_lstadd.c  ft_lstiter.c  ft_lstnew.c  ft_lstdelone.c  ft_lstdel.c  ft_lstmap.c \
 ft_occuc.c  ft_minprintf.c  ft_lstadd_back.c  ft_putstrstr.c  ft_putstrstr_fd.c \
-ft_strrev.c  ft_copyuntil.c  ft_strjoinch.c 
+ft_strrev.c  ft_copyuntil.c  ft_strjoinch.c
 
 INC = / 
 

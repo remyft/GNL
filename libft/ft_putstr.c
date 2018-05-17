@@ -6,7 +6,7 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 07:10:26 by rfontain          #+#    #+#             */
-/*   Updated: 2018/04/23 19:20:40 by rfontain         ###   ########.fr       */
+/*   Updated: 2018/04/06 07:32:18 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 void	ft_putstr(const char *str)
 {
-	write(1, str, ft_strlen(str));;
+	int i;
+
+	i = 0;
+	while (str[i])
+		ft_putchar(str[i++]);
 }

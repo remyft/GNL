@@ -3,55 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dbaffier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 13:56:40 by rfontain          #+#    #+#             */
-/*   Updated: 2018/05/08 01:33:12 by rfontain         ###   ########.fr       */
+/*   Created: 2018/04/12 12:27:14 by dbaffier          #+#    #+#             */
+/*   Updated: 2018/04/12 19:49:38 by dbaffier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int		replace_c(char *buff)
+int	read_line(int fd, t_list *file)
 {
-	int i;
+	char	buff[BUFF_SIZE + 1];
+	int		n;
 
-	i = 0;
-	while (buff[i])
+	while ((n = read(fd, buff, BUFF_SIZE)) > 0)
 	{
-		if (buff[i] == '\n')
-		{
-			buff[i] = '\0';
-			return (i);
-		}
-		i++;
+		buff[n] = '\0';
+		if (!(file->content = ft_strjoin(file->content, buff)))
+			return (-1);
+		if (ft_occuc(buff, '\n'))
+			break;
 	}
-	return (0);
+	return (1);
 }
 
-int		get_next_line(const int fd, char **line)
+static t_list		*find_in_list(int fd, t_list **file)
 {
-	int			n;
-	static t_buff	buffer;
+	t_list	*ret;
 
-	*line = ft_strnew(BUFF_SIZE);
-	if (buffer.res == -1)
+	ret = *file;
+	while (ret)
+	{
+		if ((int)ret->content_size == fd)
+			return (ret);
+		ret = ret->next;
+	}
+	free(ret);
+	return (NULL);
+}
+
+static t_list		*check_fd(int fd, t_list **file)
+{
+	t_list		*ret;
+
+	if (ret = find_in_list(fd, file))
+		return (ret);
+	ret = ft_lstnew("\0", fd);
+	ft_lstadd(file, ret);
+	ret = *file;
+	return (ret);
+}
+
+int					get_next_line(const int fd, char **line)
+{
+	static t_list			*file;
+	int						n;
+	t_list					*current;
+
+	if (fd < 0 || line == NULL || read(fd, line, 0) < 0)
 		return (0);
-	if (buffer.buff[0])
-		*line = ft_strcpy(*line, &(buffer.buff)[buffer.res + 1]);
-	if ((n = read(fd, buffer.buff, BUFF_SIZE)) > 0)
-	{
-		buffer.buff[n] = '\0';
-		buffer.res = replace_c(buffer.buff);
-		*line = ft_strjoin(*line, buffer.buff);
-	}
-	if (n == 0)
-	{
-		if (*line[0] == 0)
-			return (0);
-		buffer.res = -1;
-	}
-	if (n == -1)
+	current = check_fd(fd, &file);
+	if (!(read_line(current->content_size, current)))
 		return (-1);
+	if (!(ft_strlen(current->content)))
+		return (0);
+	*line = ft_strnew(1);
+	n = ft_copyuntil(line, current->content, '\n');
+	if (n < (int)ft_strlen(current->content))
+		current->content += n + 1;
+	else
+		ft_strclr(current->content);
 	return (1);
 }

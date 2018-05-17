@@ -6,7 +6,7 @@
 /*   By: dbaffier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 11:16:13 by dbaffier          #+#    #+#             */
-/*   Updated: 2018/04/09 11:27:25 by dbaffier         ###   ########.fr       */
+/*   Updated: 2018/04/20 18:22:07 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ int		ft_copyuntil(char **dst, char *src, char c)
 	i = 0;
 	count = 0;
 	while (src[i])
-		if (src[i++] == c)
+	{
+		if (src[i] == c)
 			break ;
+		i++;
+	}
 	pos = i;
 	if (!(*dst = ft_strnew(i)))
 		return (0);

@@ -5,26 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/24 22:55:03 by rfontain          #+#    #+#             */
-/*   Updated: 2018/05/08 00:54:37 by rfontain         ###   ########.fr       */
+/*   Created: 2018/04/19 13:56:40 by rfontain          #+#    #+#             */
+/*   Updated: 2018/04/24 23:56:49 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# include "libft/libft.h"
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdio.h>
 
-#define BUFF_SIZE 32
+# define BUFF_SIZE 32
+# define ERROR(x) ft_putstr(x)
 
-typedef struct		s_buff
-{
-	char buff[BUFF_SIZE + 1];
-	int res;
-}					t_buff;
+#include "libft/libft.h"
+#include <sys/types.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
 
-int					get_next_line(const int fd, char **line);
+int		read_line(int fd, t_list *current);
+int		get_next_line(int const fd, char **line);
+void	ft_getout(char *error);
 
 #endif
