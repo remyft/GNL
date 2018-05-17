@@ -6,7 +6,7 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 23:07:03 by rfontain          #+#    #+#             */
-/*   Updated: 2018/04/20 17:13:03 by rfontain         ###   ########.fr       */
+/*   Updated: 2018/05/17 22:40:28 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void				ft_putstrstr(char **str, char c);
 void				ft_putstrstr_fd(char **str, char c, int fd);
 void				ft_strrev(char *str);
 
-char	*ft_strjoinch(char const *s1, char c);
-int		ft_copyuntil(char **dst, char *src, char c);
+char				*ft_strjoinch(char const *s1, char c);
+int					ft_copyuntil(char **dst, char *src, char c);
 
 #endif

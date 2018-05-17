@@ -6,13 +6,13 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 13:56:40 by rfontain          #+#    #+#             */
-/*   Updated: 2018/04/24 23:56:49 by rfontain         ###   ########.fr       */
+/*   Updated: 2018/05/17 23:15:17 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	read_line(int fd, t_list *file)
+int					read_line(int fd, t_list *file)
 {
 	char	buff[BUFF_SIZE + 1];
 	int		n;
@@ -23,7 +23,7 @@ int	read_line(int fd, t_list *file)
 		if (!(file->content = ft_strjoin(file->content, buff)))
 			return (-1);
 		if (ft_occuc(buff, '\n'))
-			break;
+			break ;
 	}
 	return (1);
 }
@@ -39,7 +39,6 @@ static t_list		*find_in_list(int fd, t_list **file)
 			return (ret);
 		ret = ret->next;
 	}
-	free(ret);
 	return (NULL);
 }
 
@@ -47,7 +46,7 @@ static t_list		*check_fd(int fd, t_list **file)
 {
 	t_list		*ret;
 
-	if (ret = find_in_list(fd, file))
+	if ((ret = find_in_list(fd, file)))
 		return (ret);
 	ret = ft_lstnew("\0", fd);
 	ft_lstadd(file, ret);
@@ -62,7 +61,7 @@ int					get_next_line(const int fd, char **line)
 	t_list					*current;
 
 	if (fd < 0 || line == NULL || read(fd, line, 0) < 0)
-		return (0);
+		return (-1);
 	current = check_fd(fd, &file);
 	if (!(read_line(current->content_size, current)))
 		return (-1);
