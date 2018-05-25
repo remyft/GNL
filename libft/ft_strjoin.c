@@ -6,7 +6,7 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 03:29:50 by rfontain          #+#    #+#             */
-/*   Updated: 2018/04/13 18:11:25 by rfontain         ###   ########.fr       */
+/*   Updated: 2018/05/25 17:52:44 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	str[i + j] = '\0';
+	free((void*)s1);
 	return (str);
 }
