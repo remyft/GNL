@@ -6,7 +6,7 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 22:22:38 by rfontain          #+#    #+#             */
-/*   Updated: 2018/05/25 17:09:49 by rfontain         ###   ########.fr       */
+/*   Updated: 2018/05/26 19:04:13 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		ft_copyuntil(char **dst, char *src, char c)
 {
 	int		i;
 	int		count;
-	int		pos;
 	char	*tmp;
 
 	i = 0;
@@ -27,7 +26,6 @@ int		ft_copyuntil(char **dst, char *src, char c)
 			break ;
 		i++;
 	}
-	pos = i;
 	tmp = *dst;
 	if (!(*dst = ft_strnew(i)))
 		return (0);
@@ -40,5 +38,5 @@ int		ft_copyuntil(char **dst, char *src, char c)
 		free(tmp);
 		count++;
 	}
-	return (pos);
+	return (i);
 }
