@@ -6,7 +6,7 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 13:56:40 by rfontain          #+#    #+#             */
-/*   Updated: 2018/05/17 22:39:57 by rfontain         ###   ########.fr       */
+/*   Updated: 2018/05/27 17:37:09 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "libft/libft.h"
 # include <sys/types.h>
 # include <fcntl.h>
-# include <stdio.h>
 # include <unistd.h>
 
 int		read_line(int fd, t_list *current);
