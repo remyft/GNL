@@ -6,13 +6,13 @@
 #    By: rfontain <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/27 19:43:45 by rfontain          #+#    #+#              #
-#    Updated: 2018/04/20 17:11:44 by rfontain         ###   ########.fr        #
+#    Updated: 2018/06/01 20:05:23 by rfontain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 NAME = libft.a
 
