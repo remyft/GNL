@@ -1,4 +1,4 @@
-# GetNextLine
+# Get_Next_Line
 _This program written in C allows to read into a file line by line_
 
 ## Build & Launch
