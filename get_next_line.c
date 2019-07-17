@@ -6,7 +6,7 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 13:56:40 by rfontain          #+#    #+#             */
-/*   Updated: 2018/11/22 02:35:45 by rfontain         ###   ########.fr       */
+/*   Updated: 2018/11/22 03:34:18 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int					read_line(int fd, t_list *file)
 		buff[n] = '\0';
 		if (!(file->content = ft_strjoin(file->content, buff)))
 			return (0);
-		if (ft_occuc(buff, CHAR_SEP))
+		if (ft_strchr(buff, CHAR_SEP))
 			break ;
 	}
 	return (1);

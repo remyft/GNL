@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_copyuntil.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 22:22:38 by rfontain          #+#    #+#             */
-/*   Updated: 2018/11/22 03:35:36 by rfontain         ###   ########.fr       */
+/*   Created: 2019/07/17 02:17:39 by rfontain          #+#    #+#             */
+/*   Updated: 2019/07/17 02:43:33 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
+#include <stdio.h>
 
-int		ft_copyuntil(char **dst, char *src, char c)
+int		main(int ac, char **av)
 {
+	int		fd;
 	int		i;
-	int		count;
+	char	*line;
 
-	i = 0;
-	count = 0;
-	while (src[i])
+	i = 1;
+	line = NULL;
+	if (!av[1] || (fd = open(av[1], O_RDONLY)) == -1)
 	{
-		if (src[i] == c)
-			break ;
+		printf("No such file\nUsage : ./GNL PathToFile\n");
+		return (1);
+	}
+	while ((get_next_line(fd, &line)) == 1)
+	{
+		printf("%d : %s\n", i, line);
 		i++;
 	}
-	if (!(*dst = ft_strnew(i)))
-		return (0);
-	while (src[count] && count < i)
-	{
-		(*dst)[count] = src[count];
-		count++;
-	}
-	return (i);
+	return (0);
 }

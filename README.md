@@ -1,0 +1,20 @@
+# GetNextLine
+_This program written in C allow to read into a file line by line_
+
+## Build & Launch
+
+```bash
+git clone https://github.com/remyft/GNL
+cd GNL && make -C libft
+gcc main.c get_next_line.c libft/libft.a && ./a.out
+```
+
+## New method learned
+
+* Static variables
+* Simple linked list
+* Memory reallocation
+
+## Author
+
+* [Rémy Fontaine](https://github.com/remyft)
