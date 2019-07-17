@@ -1,5 +1,5 @@
 # GetNextLine
-_This program written in C allow to read into a file line by line_
+_This program written in C allows to read into a file line by line_
 
 ## Build & Launch
 
