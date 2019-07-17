@@ -6,7 +6,7 @@ _This program written in C allow to read into a file line by line_
 ```bash
 git clone https://github.com/remyft/GNL
 cd GNL && make -C libft
-gcc main.c get_next_line.c libft/libft.a && ./a.out
+gcc -o GNL main.c get_next_line.c libft/libft.a && ./GNL main.c
 ```
 
 ## New method learned
