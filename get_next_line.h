@@ -6,14 +6,14 @@
 /*   By: rfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 13:56:40 by rfontain          #+#    #+#             */
-/*   Updated: 2018/11/22 02:16:15 by rfontain         ###   ########.fr       */
+/*   Updated: 2019/07/25 00:58:18 by rfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 50000
+# define BUFF_SIZE 32
 # define CHAR_SEP '\n'
 
 # include "libft/libft.h"
